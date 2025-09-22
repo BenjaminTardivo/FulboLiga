@@ -47,5 +47,46 @@ namespace api.Controllers
             await _playerRepo.CreateAsync(playerModel);
             return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var playerModel = await _playerRepo.DeleteAsync(id);
+
+            if (playerModel == null)
+            {
+                return NotFound("No se encontro al jugador");
+            }
+
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
+        {
+            var playerModel = await _playerRepo.UpdateAsync(id, updateDto);
+
+            if (playerModel == null)
+            {
+                return NotFound("No se encontro al jugador");
+            }
+
+            return Ok(playerModel.ToPlayerDto());
+        }
+
+        [HttpPatch]
+        [Route("{id:int}")]
+        public async Task<IActionResult> TeamTransfer([FromRoute] int id, [FromBody] int teamId)
+        {
+            var playerModel = await _playerRepo.TeamTransferAsync(id, teamId);
+
+            if (playerModel == null)
+            {
+                return NotFound("No se encontro al jugador");
+            }
+
+            return Ok(playerModel.ToPlayerDto());
+        }
     }
 }

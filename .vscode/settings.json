@@ -1,1 +1,12 @@
-{}
+{
+    // API.
+    "api.name": "API Seguros",
+    "api.sln": "${workspaceFolder}/ApiSeguros.sln",
+    "api.path": "${workspaceFolder}/src/ApiSeguros.Web",
+    "api.csproj": "${workspaceFolder}/src/ApiSeguros.Web/ApiSeguros.Web.csproj",
+    "api.publish": "${workspaceFolder}/src/ApiSeguros.Web/bin/Release/net8.0/publish",
+    "api.openPublish": "${workspaceFolder}\\src\\ApiSeguros.Web\\bin\\Release\\net8.0\\publish",
+    "api.build": "${workspaceFolder}/src/ApiSeguros.Web/bin/Debug/net8.0/ApiSeguros.Web.dll",
+    // Swagger.
+    "swagger.url": "https://localhost:7095"
+}

@@ -1,0 +1,202 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"${config:api.sln}"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "clean",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"clean",
+				"${config:api.sln}",
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "cleanup",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"format",
+				"${config:api.sln}",
+				"--verbosity",
+				"minimal",
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "publish (dev)",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"publish",
+				"${config:api.csproj}",
+				"--configuration",
+				"Release",
+				"/p:DeleteExistingFiles=true",
+				"/p:PublishProfile=Development"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": "$msCompile",
+		},
+		{
+			"label": "publish (tst)",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"publish",
+				"${config:api.csproj}",
+				"--configuration",
+				"Release",
+				"/p:DeleteExistingFiles=true",
+				"/p:PublishProfile=Staging"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "publish (prd)",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"publish",
+				"${config:api.csproj}",
+				"--configuration",
+				"Release",
+				"/p:DeleteExistingFiles=true",
+				"/p:PublishProfile=Production"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "publish + open (dev)",
+			"type": "shell",
+			"windows": {
+				"command": "cmd",
+				"args": [
+					"/c",
+					"start",
+					"",
+					"${config:api.openPublish}"
+				]
+			},
+			"osx": {
+				"command": "open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"linux": {
+				"command": "xdg-open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"dependsOn": "publish (dev)"
+		},
+		{
+			"label": "publish + open (tst)",
+			"type": "shell",
+			"windows": {
+				"command": "cmd",
+				"args": [
+					"/c",
+					"start",
+					"",
+					"${config:api.openPublish}"
+				]
+			},
+			"osx": {
+				"command": "open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"linux": {
+				"command": "xdg-open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"dependsOn": "publish (tst)"
+		},
+		{
+			"label": "publish + open (prd)",
+			"type": "shell",
+			"windows": {
+				"command": "cmd",
+				"args": [
+					"/c",
+					"start",
+					"",
+					"${config:api.openPublish}"
+				]
+			},
+			"osx": {
+				"command": "open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"linux": {
+				"command": "xdg-open",
+				"args": [
+					"${config:api.openPublish}"
+				]
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			},
+			"dependsOn": "publish (prd)"
+		}
+	]
+}

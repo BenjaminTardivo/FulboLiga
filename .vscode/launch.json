@@ -1,0 +1,159 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    /*{
+      "name": "${config:api.name} - Development",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "presentation": {
+        "hidden": true
+      }
+    },
+    {
+      "name": "${config:api.name} - Staging",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      },
+      "presentation": {
+        "hidden": true
+      }
+    },
+    {
+      "name": "${config:api.name} - Production",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "presentation": {
+        "hidden": true
+      }
+    },
+    {
+      "name": "Swagger - Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "${config:swagger.url}",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--force-dark-mode",
+        "--new-window"
+      ],
+      "presentation": {
+        "hidden": true
+      }
+    },*/
+    {
+      "name": "Development",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+        "uriFormat": "%s"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Staging",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
+    {
+      "name": "Production",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${config:api.build}",
+      "cwd": "${config:api.path}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "justMyCode": true,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    {
+      "name": "Swagger",
+      "type": "chrome",
+      "request": "launch",
+      "url": "${config:swagger.url}",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--force-dark-mode",
+        "--new-window"
+      ]
+    },
+  ],
+  /*"compounds": [
+    {
+      "name": "Development",
+      "configurations": [
+        "${config:api.name} - Development",
+        "Swagger - Chrome"
+      ]
+    },
+    {
+      "name": "Staging",
+      "configurations": [
+        "${config:api.name} - Staging",
+        "Swagger - Chrome"
+      ]
+    },
+    {
+      "name": "Production",
+      "configurations": [
+        "${config:api.name} - Production",
+        "Swagger - Chrome"
+      ]
+    }
+  ]*/
+}

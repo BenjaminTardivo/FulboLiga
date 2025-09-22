@@ -22,7 +22,8 @@ namespace api.Mappers
                 PE = teamModel.PE,
                 PP = teamModel.PP,
                 Diff = teamModel.Diff,
-                PTS = teamModel.PTS
+                PTS = teamModel.PTS,
+                Jugadores = teamModel.Jugadores.Select(p => p.ToPlayerDto()).ToList()
             };
         }
 

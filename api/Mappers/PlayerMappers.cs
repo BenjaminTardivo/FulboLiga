@@ -22,7 +22,8 @@ namespace api.Mappers
                 Goles = playerModel.Goles,
                 GolEnContra = playerModel.GolEnContra,
                 Amarillas = playerModel.Amarillas,
-                Rojas = playerModel.Rojas
+                Rojas = playerModel.Rojas,
+                TeamId = playerModel.TeamId
             };
         }
 

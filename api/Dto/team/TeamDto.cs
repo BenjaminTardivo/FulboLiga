@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dto.Player;
 using api.Models;
 
 namespace api.Controllers.Dto
@@ -17,6 +18,6 @@ namespace api.Controllers.Dto
         public int PP { get; set; }
         public int Diff { get; set; }
         public int PTS { get; set; }
-        public List<Player>? Jugadores { get; set; } = new List<Player>();
+        public List<PlayerDto> Jugadores { get; set; }
     }
 }
